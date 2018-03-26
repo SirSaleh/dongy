@@ -1,5 +1,5 @@
 # dongy
 
-Django app for calculation quota of each shared costs user 
+Django app for calculation quota of each shared costs per user 
 
 
