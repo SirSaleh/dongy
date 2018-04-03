@@ -15,5 +15,5 @@ class costs (models.Model):
     UserName = models.ForeignKey(User)
     PayerName = models.CharField(max_length=20)
     FriendNames = models.CharField(max_length=20)
-    FriendShare = models.CharField(max_length=1000)
+    FriendShare = models.CharField(max_length=1000,null=True,blank=True)
     CostAmount = models.FloatField()
