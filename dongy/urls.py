@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import include
+#from django.urls import include, path
+from dongycosts.urls import urlpatterns
 
 urlpatterns = [
+    url(r'^dongycosts/' ,include('dongycosts.urls')),
+    #path('costs/', include('dongycosts.urls')),
     url(r'^admin/', admin.site.urls),
 ]

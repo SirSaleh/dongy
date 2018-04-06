@@ -13,10 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+# to add this file to your website:
+# add this lines to your main urls.py
+# from django.conf.urls import include
+# url(r'^dongycosts/' ,include('dongycosts.urls')),
+
 from django.conf.urls import url
 from django.contrib import admin
 from dongycosts import views as dongycosts_views
 
 urlpatterns = [
     #url(r'^admin/',admin.site.urls),
+    url(r'^test/',dongycosts_views.list_costs),
 ]

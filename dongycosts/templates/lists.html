@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+  List of Items
+{% endblock title %}
+{% block contents %}
+  Hello <span style="color:blue;"> {{ UserName }}</span>. You have
+    {% if NumberOfPayments == 0 %}
+        <span style="color:red;"> No </span>
+    {% else %}
+        <span style="color:blue;"> {{ NumberOfPayments }} </span>
+    {% endif %}
+    Payments.
+    <hr>
+    <ul>
+    {% for usercost in usercosts %}
+      <li> Payer Name: <span style="color:blue;"> {{ usercost.PayerName }} </span> for  {{ usercost.FriendNames }} values:
+        {% if usercost.FriendShare != None %}
+          <span style="color:blue;"> {{ usercost.FriendShare }} </span> respectivly.
+        {% else %}
+          Equal for all.
+        {% endif %}
+      </li>
+    {% endfor%}
+    </ul>
+    <hr>
+{% endblock contents %}
