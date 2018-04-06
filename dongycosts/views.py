@@ -11,16 +11,29 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def list_costs(request):
-    #test_func()
+    # obtain user object
     CurrentUser = request.user
+
+    # get username
     username = CurrentUser.get_username()
+
+    # get userid to get costs for user from costs model
     userid = User.objects.get(username=username)
+
+    #get costs list
     usercosts = costs.objects.filter(UserName=userid)
+
+    # get number of payments for user
     NumberOfPayments = usercosts.__len__()
+
+    # context of lists template
     list_data = {
         'NumberOfPayments':NumberOfPayments,
         'UserName':username,
         'usercosts':usercosts,
     }
+
+    # obtain template object
     list_template = loader.get_template("lists.html")
+    
     return HttpResponse(list_template.render(list_data,request))
