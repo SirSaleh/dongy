@@ -24,5 +24,5 @@ from dongycosts import views as dongycosts_views
 
 urlpatterns = [
     #url(r'^admin/',admin.site.urls),
-    url(r'^test/',dongycosts_views.list_costs),
+    url(r'^list/',dongycosts_views.list_costs),
 ]
