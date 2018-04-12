@@ -70,7 +70,7 @@ def show_balance(request):
     UserCosts = costs.objects.filter(UserName=userid)
 
     # get number of payments for user
-    # NumberOfPayments = usercosts.__len__()
+    NumberOfPayments = UserCosts.__len__()
 
     for usercost in UserCosts:
         # Friend Names for specific payment (parsed)
@@ -103,5 +103,14 @@ def show_balance(request):
         UserBalances.update(Counter(Current_cost_dic))
         #UserBalances = dict( Counter(UserBalances) + Counter(Current_cost_dic))
 
-    print(UserBalances)
-    return HttpResponse("<h1> This is Balance Page </h1> just printed in console.")
+    # Load template for Balances
+    Balance_Template = loader.get_template('balance.html')
+
+    # Context for Balance Tempalate
+    Balance_Context = {
+        'UserName':username,
+        'NumberOfPayments':NumberOfPayments,
+        'UserBalances':dict(UserBalances),
+    }
+
+    return HttpResponse(Balance_Template.render(Balance_Context,request))

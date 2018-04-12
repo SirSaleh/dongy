@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+  Balance Report
+{% endblock title %}
+{% block contents %}
+  Hello <span style="color:blue;"> {{ UserName }}</span>. You have
+    {% if NumberOfPayments == 0 %}
+        <span style="color:red;"> No </span>
+    {% else %}
+        <span style="color:blue;"> {{ NumberOfPayments }} </span>
+    {% endif %}
+    Payments.
+    <hr>
+    <ul>
+    {% for UserBalancesName,UserBalancesVal in UserBalances.items %}
+      <li> Name: <span style="color:blue;"> {{ UserBalancesName }} </span>. Balance:  {{ UserBalancesVal }} 
+      </li>
+    {% endfor%}
+    </ul>
+    <hr>
+{% endblock contents %}
