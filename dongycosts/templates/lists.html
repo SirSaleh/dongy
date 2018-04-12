@@ -17,7 +17,7 @@
         {% if usercost.FriendShare != None %}
           <span style="color:blue;"> {{ usercost.FriendShare }} </span> respectivly.
         {% else %}
-          Equal for all.
+          Equal for all. Total: <span style="color:blue;"> {{ usercost.CostAmount }} <span>
         {% endif %}
       </li>
     {% endfor%}
