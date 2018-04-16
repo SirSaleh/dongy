@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # to addup dictionaries
 from collections import Counter
+# to load forms
+from dongycosts.forms import EqualForm
 
 
 # Create your views here.
@@ -114,3 +116,26 @@ def show_balance(request):
     }
 
     return HttpResponse(Balance_Template.render(Balance_Context,request))
+
+@login_required
+def equal_form(request):
+    # obtain user object
+    CurrentUser = request.user
+
+    # get username
+    username = CurrentUser.get_username()
+
+    # get userid to get costs for user from costs model
+    userid = User.objects.get(username=username)
+
+
+
+    Form_Template = loader.get_template("forms.html")
+
+    # forms context
+    Form_Context = {
+        'form':EqualForm(userid=userid),
+        'UserName':username,
+    }
+
+    return HttpResponse(Form_Template.render(Form_Context,request))

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+  New Payment
+{% endblock title %}
+{% block contents %}
+  Hello <span style="color:blue;"> {{ UserName }}</span>
+    <hr>
+    <form>
+      {{ form.as_p }}
+      <input type="submit" value="submit"/>
+    </form>
+{% endblock contents %}
