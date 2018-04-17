@@ -93,7 +93,7 @@ def show_balance(request):
             FriendShare = map(lambda xx: float(xx) ,FriendShare.split(",") )
 
         # Make FriendShare Negative for Calculations
-        FriendShare = {value*-1 for value in FriendShare}
+        FriendShare = [value*-1 for value in FriendShare]
 
         # Dictionary of costs for current payment
         Current_cost_dic = dict(zip(FriendNames,FriendShare))
@@ -103,7 +103,6 @@ def show_balance(request):
 
         # add up payer value to payer balance NEGATIVELY
         UserBalances.update(Counter(Current_cost_dic))
-        #UserBalances = dict( Counter(UserBalances) + Counter(Current_cost_dic))
 
     # Load template for Balances
     Balance_Template = loader.get_template('balance.html')
@@ -147,7 +146,6 @@ def equal_form(request):
 
             # Total Cost Amount for current Payments
             CostAmount = float(request.POST.getlist('CostAmount')[0])
-            print("is:::::::",FriendNames)
 
             # Instance for Current Payment Query
             PaymentInstance = costs(UserName = CurrentUser, PayerName = PayerName, FriendNames = FriendNames,CostAmount = CostAmount )
