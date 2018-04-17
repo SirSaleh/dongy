@@ -127,7 +127,39 @@ def equal_form(request):
 
     # get userid to get costs for user from costs model
     userid = User.objects.get(username=username)
+    #FormDjango
 
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        print("ISSSS POSTTTT")
+        # create a form instance and populate it with data from the request:
+        form = EqualForm(request.POST,userid=userid)
+        # check whether it's valid:
+        if form.is_valid():
+            # Get name of Payer
+            PayerName = request.POST.get('PayerName')
+
+            # Users of current payment
+            FriendNames = request.POST.getlist('FriendNames')
+            # Change the list of users to
+            #   comma seperated form in order to saving in database
+            FriendNames = ",".join(FriendNames)
+
+            # Total Cost Amount for current Payments
+            CostAmount = float(request.POST.getlist('CostAmount')[0])
+            print("is:::::::",FriendNames)
+
+            # Instance for Current Payment Query
+            PaymentInstance = costs(UserName = CurrentUser, PayerName = PayerName, FriendNames = FriendNames,CostAmount = CostAmount )
+            PaymentInstance.save()
+            # ...
+            # redirect to a new URL:
+            return HttpResponse("<h1> Thanks </h1>")
+
+    # if a GET
+    else:
+        print("ISSSS GETTT")
+        form = EqualForm(userid=userid)
 
 
     Form_Template = loader.get_template("forms.html")
