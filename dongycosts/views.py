@@ -177,10 +177,6 @@ def add_friend(request):
     # get username
     username = CurrentUser.get_username()
 
-    # get userid to get costs for user from costs model
-    #userid = User.objects.get(username=username)
-    print("Before Requesttttttttttttttt")
-
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # Get name of Payer
@@ -197,7 +193,6 @@ def add_friend(request):
         print("Before Check valid")
         # check whether it's valid:
         if form.is_valid():
-            print("Validdddddd")
 
             # Instance for Current Payment Query
             NewFriendInstance = friends(Username=CurrentUser,FriendName=NewFriendName)
