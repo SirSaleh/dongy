@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from collections import Counter
 # to load forms
 from dongycosts.forms import EqualForm
+from dongycosts.forms import Add_Friend_Form
+
 
 
 # Create your views here.
@@ -93,7 +95,7 @@ def show_balance(request):
             FriendShare = map(lambda xx: float(xx) ,FriendShare.split(",") )
 
         # Make FriendShare Negative for Calculations
-        FriendShare = {value*-1 for value in FriendShare}
+        FriendShare = [value*-1 for value in FriendShare]
 
         # Dictionary of costs for current payment
         Current_cost_dic = dict(zip(FriendNames,FriendShare))
@@ -103,7 +105,6 @@ def show_balance(request):
 
         # add up payer value to payer balance NEGATIVELY
         UserBalances.update(Counter(Current_cost_dic))
-        #UserBalances = dict( Counter(UserBalances) + Counter(Current_cost_dic))
 
     # Load template for Balances
     Balance_Template = loader.get_template('balance.html')
@@ -127,11 +128,9 @@ def equal_form(request):
 
     # get userid to get costs for user from costs model
     userid = User.objects.get(username=username)
-    #FormDjango
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        print("ISSSS POSTTTT")
         # create a form instance and populate it with data from the request:
         form = EqualForm(request.POST,userid=userid)
         # check whether it's valid:
@@ -147,7 +146,6 @@ def equal_form(request):
 
             # Total Cost Amount for current Payments
             CostAmount = float(request.POST.getlist('CostAmount')[0])
-            print("is:::::::",FriendNames)
 
             # Instance for Current Payment Query
             PaymentInstance = costs(UserName = CurrentUser, PayerName = PayerName, FriendNames = FriendNames,CostAmount = CostAmount )
@@ -171,3 +169,27 @@ def equal_form(request):
     }
 
     return HttpResponse(Form_Template.render(Form_Context,request))
+
+@login_required
+def add_friend(request):
+    # obtain user object
+    CurrentUser = request.user
+
+    # get username
+    username = CurrentUser.get_username()
+
+    # get userid to get costs for user from costs model
+    userid = User.objects.get(username=username)
+
+    # get form for add friend
+    #Add_Friend_Form = Add_Friend_Form()
+
+    # Context of add friend page
+    Add_Friend_Context ={
+        'form':Add_Friend_Form(),
+    }
+
+    # get template of forms
+    Forms_Template = loader.get_template('forms.html')
+
+    return HttpResponse(Forms_Template.render(Add_Friend_Context,request))

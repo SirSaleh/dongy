@@ -51,3 +51,6 @@ class EqualForm (forms.Form):
 
     # amount of the current payment
     CostAmount = forms.FloatField(min_value=0,label="Cost Amount")
+
+class Add_Friend_Form(forms.Form):
+    NewFriendName = forms.CharField(max_length=20,label="New Friend Name")

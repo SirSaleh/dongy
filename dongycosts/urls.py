@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^list/',dongycosts_views.list_costs),
     url(r'^balance/',dongycosts_views.show_balance),
     url(r'^EqualForm/',dongycosts_views.equal_form),
+    url(r'^AddFriend/',dongycosts_views.add_friend),
 ]
