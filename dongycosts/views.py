@@ -156,7 +156,6 @@ def equal_form(request):
 
     # if a GET
     else:
-        print("ISSSS GETTT")
         form = EqualForm(userid=userid)
 
 
@@ -179,10 +178,37 @@ def add_friend(request):
     username = CurrentUser.get_username()
 
     # get userid to get costs for user from costs model
-    userid = User.objects.get(username=username)
+    #userid = User.objects.get(username=username)
+    print("Before Requesttttttttttttttt")
 
-    # get form for add friend
-    #Add_Friend_Form = Add_Friend_Form()
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # Get name of Payer
+        NewFriendName = request.POST.get('NewFriendName')
+
+        # check if it not exists Before
+        oldfriends = friends.objects.filter(Username=CurrentUser)
+        oldfriends = [x.FriendName for x in oldfriends]
+        if (NewFriendName in oldfriends):
+            return HttpResponse("<h1> Sorry</h1>You Registered this friend's Name before.")
+
+        # create a form instance and populate it with data from the request:
+        form = Add_Friend_Form(request.POST)
+        print("Before Check valid")
+        # check whether it's valid:
+        if form.is_valid():
+            print("Validdddddd")
+
+            # Instance for Current Payment Query
+            NewFriendInstance = friends(Username=CurrentUser,FriendName=NewFriendName)
+            NewFriendInstance.save()
+            # ...
+            #
+            return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+"</span> added successfully")
+
+    # if a GET
+    else:
+        form = Add_Friend_Form()
 
     # Context of add friend page
     Add_Friend_Context ={
