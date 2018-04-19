@@ -23,7 +23,7 @@ from django.contrib import admin
 from dongycosts import views as dongycosts_views
 
 urlpatterns = [
-    #url(r'^admin/',admin.site.urls),
+    url(r'^$',dongycosts_views.index),
     url(r'^list/',dongycosts_views.list_costs),
     url(r'^balance/',dongycosts_views.show_balance),
     url(r'^EqualForm/',dongycosts_views.equal_form),

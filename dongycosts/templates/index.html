@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+  Dongy Costs
+{% endblock title %}
+{% block contents %}
+  Hello <span style="color:blue;"> {{ UserName }}</span>. You have
+    {% if Friends_Number == 0 %}
+        <span style="color:red;"> No </span> Friends. So Please
+        <a href= {{ request.path|add:"AddFriend"}}> See Add Friends Page </a>
+    {% else %}
+        <span style="color:blue;"> {{ Friends_Number }} </span> Friends.
+        <hr>
+        <ul>
+          <a href= {{ request.path|add:"AddFriend"}}> Add Another Friend </a>
+        </ul>
+        <ul>
+          <a href= {{ request.path|add:"EqualForm"}}> Add Another Payment </a>
+        </ul>
+        <ul>
+          <a href= {{ request.path|add:"list"}}> See List of Payments </a>
+        </ul>
+        <ul>
+          <a href= {{ request.path|add:"balance"}}> See Balances </a>
+        </ul>
+    {% endif %}
+    <hr>
+{% endblock contents %}

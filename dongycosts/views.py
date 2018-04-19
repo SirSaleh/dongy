@@ -199,14 +199,15 @@ def add_friend(request):
             NewFriendInstance.save()
             # ...
             #
-            return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+"</span> added successfully")
+            return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
+                "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
 
     # if a GET
     else:
         form = Add_Friend_Form()
 
     # Context of add friend page
-    Add_Friend_Context ={
+    Add_Friend_Context = {
         'form':Add_Friend_Form(),
     }
 
@@ -214,3 +215,29 @@ def add_friend(request):
     Forms_Template = loader.get_template('forms.html')
 
     return HttpResponse(Forms_Template.render(Add_Friend_Context,request))
+
+def index (request):
+    # obtain user object
+    CurrentUser = request.user
+
+    # get username
+    username = CurrentUser.get_username()
+
+    # get userid to get costs for user from costs model
+    userid = User.objects.get(username=username)
+
+    # get Friends
+    Friends = friends.objects.filter(Username = userid)
+
+    # get Number of Friend
+    Friends_Number = Friends.__len__()
+
+    # get index template
+    index_Template = loader.get_template("index.html")
+
+    index_cotext = {
+        'UserName': username,
+        'Friends_Number':Friends_Number,
+    }
+
+    return (HttpResponse(index_Template.render(index_cotext,request)))
