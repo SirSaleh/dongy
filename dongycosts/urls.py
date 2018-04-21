@@ -24,9 +24,9 @@ from dongycosts import views as dongycosts_views
 
 urlpatterns = [
     #url(r'^login/$', auth_views.login, name='login')
-    url(r'^$',dongycosts_views.index),
-    url(r'^list/',dongycosts_views.list_costs),
-    url(r'^balance/',dongycosts_views.show_balance),
-    url(r'^EqualForm/',dongycosts_views.equal_form),
-    url(r'^AddFriend/',dongycosts_views.add_friend),
+    url(r'^$',dongycosts_views.index,name= "dongy_index"),
+    url(r'^list/',dongycosts_views.list_costs,name="dongy_list"),
+    url(r'^balance/',dongycosts_views.show_balance,name= "dongy_balance"),
+    url(r'^EqualForm/',dongycosts_views.equal_form,name="dongy_equalform"),
+    url(r'^AddFriend/',dongycosts_views.add_friend,name="dongy_addFriend"),
 ]
