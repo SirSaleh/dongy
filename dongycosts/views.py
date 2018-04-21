@@ -216,6 +216,7 @@ def add_friend(request):
 
     return HttpResponse(Forms_Template.render(Add_Friend_Context,request))
 
+@login_required
 def index (request):
     # obtain user object
     CurrentUser = request.user

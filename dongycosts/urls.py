@@ -23,6 +23,7 @@ from django.contrib import admin
 from dongycosts import views as dongycosts_views
 
 urlpatterns = [
+    #url(r'^login/$', auth_views.login, name='login')
     url(r'^$',dongycosts_views.index),
     url(r'^list/',dongycosts_views.list_costs),
     url(r'^balance/',dongycosts_views.show_balance),
