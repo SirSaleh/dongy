@@ -17,13 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
 from dongycosts.urls import urlpatterns
-# Authentication Views
-from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     url(r'^dongycosts/' ,include('dongycosts.urls')),
+    url(r'^accounts/',include('accounts.urls')),
     #path('costs/', include('dongycosts.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', auth_views.login, name='login'),
-    url(r'^accounts/logout/$', auth_views.logout, name='logout'),
 ]

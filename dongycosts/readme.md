@@ -6,7 +6,6 @@ Django main app for calculation quota of each shared costs per user
 > from django.conf.urls import include
 > url(r'^dongycosts/' ,include('dongycosts.urls')),
 
-add template folder to root of website for login and add login view
 
 in `setting.py` add:
 
