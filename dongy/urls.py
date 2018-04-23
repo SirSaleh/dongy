@@ -21,8 +21,8 @@ from dongy import views as dongy_views
 
 
 urlpatterns = [
-    url(r'^dongycosts/' ,include('dongycosts.urls')),
+    url(r'^dongycosts/' ,include('dongycosts.urls'),name="dongy_costs"),
     url(r'^accounts/',include('accounts.urls')),
-    url(r'^$',dongy_views.index,name="dongy_index"),
+    #url(r'^$',dongy_views.index,name="dongy_index"),
     url(r'^admin/', admin.site.urls),
 ]
