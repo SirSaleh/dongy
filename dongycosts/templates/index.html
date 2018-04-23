@@ -6,18 +6,18 @@
   Hello <span style="color:blue;"> {{ UserName }}</span>. You have
     {% if Friends_Number == 0 %}
         <span style="color:red;"> No </span> Friends. So Please
-        <a href= {{ request.path|add:"AddFriend"}}> See Add Friends Page </a>
+        <a href= {% url 'dongy_addFriend' %}> See Add Friends Page </a>
     {% else %}
         <span style="color:blue;"> {{ Friends_Number }} </span> Friends.
         <hr>
         <ul>
-          <a href= {{ request.path|add:"AddFriend"}}> Add Another Friend </a>
+          <a href= {% url 'dongy_addFriend' %}> Add Another Friend </a>
         </ul>
         <ul>
-          <a href= {{ request.path|add:"EqualForm"}}> Add Another Payment </a>
+          <a href= {% url 'dongy_equalform' %}> Add Another Payment </a>
         </ul>
         <ul>
-          <a href= {{ request.path|add:"list"}}> See List of Payments </a>
+          <a href= {% url 'dongy_list' %}> See List of Payments </a>
         </ul>
         <ul>
           <a href= {{ request.path|add:"balance"}}> See Balances </a>

@@ -236,9 +236,9 @@ def index (request):
     # get index template
     index_Template = loader.get_template("index.html")
 
-    index_cotext = {
+    index_context = {
         'UserName': username,
         'Friends_Number':Friends_Number,
     }
 
-    return (HttpResponse(index_Template.render(index_cotext,request)))
+    return (HttpResponse(index_Template.render(index_context,request)))
