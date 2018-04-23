@@ -14,14 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from django.conf.urls import include
+from django.contrib import admin
 from dongycosts.urls import urlpatterns
+from dongy import views as dongy_views
 
 
 urlpatterns = [
     url(r'^dongycosts/' ,include('dongycosts.urls')),
     url(r'^accounts/',include('accounts.urls')),
-    #path('costs/', include('dongycosts.urls')),
+    url(r'^$',dongy_views.index,name="dongy_index"),
     url(r'^admin/', admin.site.urls),
 ]
