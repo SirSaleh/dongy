@@ -208,6 +208,7 @@ def add_friend(request):
 
     # Context of add friend page
     Add_Friend_Context = {
+        'UserName':username,
         'form':Add_Friend_Form(),
     }
 
