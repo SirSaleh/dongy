@@ -5,33 +5,53 @@
     <title>{% block title %} {% endblock title %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static './css/main.css' %}">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <!--Header -->
-      <div>
-        <div class="navbar">
-          <li>
-            <a href={% url 'dongy_index' %}> Home </a>
-          </li>
-          <li>
-            <a href={% url 'dongy_list' %}> List of Payments </a>
-          </li>
-          <li>
-            <a href={% url 'dongy_balance' %}> Balance of Friends </a>
-          </li>
-          <li>
-            <a href={% url 'dongy_equalform' %}> Add a Payment </a>
-          </li>
-          <li>
-            <a href={% url 'dongy_addFriend' %}>  Add a Friend </a>
-          </li>
-          <li>
-            <a href="/accounts/logout/"> Logout </a>
-          </li>
-        <div>
-      </div>
+      <div class="containter"> <!-- navbar container !-->
+        <div class="row"> <!-- navbar row !-->
+          <div class="row navbar"> <!-- navbar main -->
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 logo">
+              {% load static %}
+              <img src="/static/imgs/logo.png"></img>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 navbaritems"> <!-- Navbar items -->
+              <li>
+                <a href={% url 'dongy_index' %}> Home </a>
+              </li>
+              <li>
+                <a href={% url 'dongy_list' %}> List of Payments </a>
+              </li>
+              <li>
+                <a href={% url 'dongy_balance' %}> Balance of Friends </a>
+              </li>
+              <li>
+                <a href={% url 'dongy_equalform' %}> Add a Payment </a>
+              </li>
+              <li>
+                <a href={% url 'dongy_addFriend' %}>  Add a Friend </a>
+              </li>
+              <li>
+                <a href="/accounts/logout/"> Logout </a>
+              </li>
+            </div> <!-- Navbar items -->
+          </div> <!-- navbar main -->
+        </div> <!-- navbar row !-->
+      </div> <!-- nabar container !-->
       <hr>
     <!--end Header -->
-    {% block contents %} {% endblock contents %}
+    <div class="containter-fluid"> <!-- Content Container -->
+      <div class="row mainrow"> <!-- Content row -->
+        {% block contents %} {% endblock contents %}
+      </div> <!-- Content row -->
+    </div>  <!-- Content Container -->
   </body>
 </html>
