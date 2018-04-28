@@ -16,6 +16,7 @@
   </head>
   <body>
     <!--Header -->
+
       <div class="containter"> <!-- navbar container !-->
         <div class="row"> <!-- navbar row !-->
           <div class="row navbar"> <!-- navbar main -->
@@ -24,6 +25,7 @@
               <img src="/static/imgs/logo.png"></img>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 navbaritems"> <!-- Navbar items -->
+              {% if request.user.is_authenticated %}
               <li>
                 <a href={% url 'dongy_index' %}> Home </a>
               </li>
@@ -42,10 +44,12 @@
               <li>
                 <a href="/accounts/logout/"> Logout </a>
               </li>
+              {%  endif %}
             </div> <!-- Navbar items -->
           </div> <!-- navbar main -->
         </div> <!-- navbar row !-->
       </div> <!-- nabar container !-->
+
       <hr>
     <!--end Header -->
     <div class="containter-fluid"> <!-- Content Container -->
