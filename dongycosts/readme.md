@@ -1,4 +1,6 @@
 # dongycosts app
+Version 1.00
+
 Django main app for calculation quota of each shared costs per user
 ## before implement
  to add this file to your website:
