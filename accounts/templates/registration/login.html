@@ -10,6 +10,9 @@
 	{% csrf_token %}
 	{{form.as_p}}
 		<input type="submit" value = "submit"/>
-	</form>
+	</form> <br>
+        <div>
+          <span style="font-size:10px">Don't Have an account? <a href={% url 'signup' %}>signup now! </a></a>
+       </div>
   </body>
 </html>
