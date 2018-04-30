@@ -28,9 +28,7 @@ li{
 	padding-left: 2px;
 }
 
-.navbar  li ::after {
-	content: "|";
-}
+
 
 .logo {
 	text-align: center;
@@ -52,7 +50,5 @@ li{
 	li{
 		display: block;
 	}
-	.navbar  li ::after {
-	content: "";
-  }
+
 }
