@@ -1,11 +1,24 @@
+html * {
+	font-family: 'Do Hyeon', sans-serif;
+}
 body {
 	background-color:#fff;
+
 }
 li{
 	display: inline-block;
 }
+.mainrow li{
+	display: block;
+}
+
 .row {
 	padding-left: 15px;
+}
+.navbarrow{
+	background-color: #fff;
+	margin-bottom: -20px;
+	box-shadow: 10px 10px 10px 2px;
 }
 .navbar {
 	 margin: 10px; */
@@ -14,17 +27,32 @@ li{
 	padding-right: 2px;
 	padding-left: 2px;
 }
+
 .navbar  li ::after {
 	content: "|";
 }
+
 .logo {
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 5px;
 }
 .navbaritems{
-	margin-top: 50px;
+	margin-top: 15px;
+	font-size: 20px;
 }
+
 .mainrow{
 	padding-left: 50px;
 	text-align: left;
+	font-size: 20px;
+}
+
+
+@media only screen and (max-width:600px){
+	li{
+		display: block;
+	}
+	.navbar  li ::after {
+	content: "";
+  }
 }

@@ -13,12 +13,14 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
   </head>
   <body>
     <!--Header -->
 
       <div class="containter"> <!-- navbar container !-->
-        <div class="row"> <!-- navbar row !-->
+        <div class="row navbarrow"> <!-- navbar row !-->
           <div class="row navbar"> <!-- navbar main -->
             <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 logo">
               {% load static %}
@@ -44,12 +46,11 @@
               <li>
                 <a href="/accounts/logout/"> Logout </a>
               </li>
-              {%  endif %}
+              {% endif %}
             </div> <!-- Navbar items -->
           </div> <!-- navbar main -->
         </div> <!-- navbar row !-->
       </div> <!-- nabar container !-->
-
       <hr>
     <!--end Header -->
     <div class="containter-fluid"> <!-- Content Container -->
