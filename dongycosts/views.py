@@ -163,6 +163,7 @@ def equal_form(request):
 
     # forms context
     Form_Context = {
+        'title':'Add a Payment',
         'form':EqualForm(userid=userid),
         'UserName':username,
     }
@@ -208,6 +209,7 @@ def add_friend(request):
 
     # Context of add friend page
     Add_Friend_Context = {
+        'title':'Add a Friend',
         'UserName':username,
         'form':Add_Friend_Form(),
     }
