@@ -11,16 +11,18 @@
         <span style="color:blue;"> {{ Friends_Number }} </span> Friends.
         <hr>
         <ul>
-          <a href= {% url 'dongy_addFriend' %}> Add Another Friend </a>
-        </ul>
-        <ul>
-          <a href= {% url 'dongy_equalform' %}> Add Another Payment </a>
-        </ul>
-        <ul>
-          <a href= {% url 'dongy_list' %}> See List of Payments </a>
-        </ul>
-        <ul>
-          <a href= {{ request.path|add:"balance"}}> See Balances </a>
+          <li>
+            <a href= {% url 'dongy_addFriend' %}> Add Another Friend </a>
+          </li>
+          <li>
+            <a href= {% url 'dongy_equalform' %}> Add Another Payment </a>
+          </li>
+          <li>
+            <a href= {% url 'dongy_list' %}> See List of Payments </a>
+          </li>
+          <li>
+            <a href= {{ request.path|add:"balance"}}> See Balances </a>
+          </li>
         </ul>
     {% endif %}
     <hr>
