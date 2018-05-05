@@ -4,10 +4,14 @@
 {% endblock title %}
 {% block contents %}
   Hello <span style="color:blue;"> {{ UserName }}</span>
+    {% if Friends_Number == 0%}
+      <br> <a href="{% url 'dongy_addFriend' %}" >Add a friend first! </a>
+    {% else %}
     <hr>
     <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="submit" value="submit"/>
     </form>
+    {% endif %}
 {% endblock contents %}

@@ -129,6 +129,12 @@ def equal_form(request):
     # get userid to get costs for user from costs model
     userid = User.objects.get(username=username)
 
+    # get Friends
+    Friends = friends.objects.filter(Username = userid)
+
+    # get Number of Friend
+    Friends_Number = Friends.__len__()
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -166,6 +172,7 @@ def equal_form(request):
         'title':'Add a Payment',
         'form':EqualForm(userid=userid),
         'UserName':username,
+        'Friends_Number':Friends_Number,
     }
 
     return HttpResponse(Form_Template.render(Form_Context,request))
