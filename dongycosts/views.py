@@ -60,6 +60,9 @@ def show_balance(request):
     # get user friends
     userfriends = friends.objects.filter(Username=  userid)
 
+    # friends Number
+    userfriends_Number = userfriends.__len__()
+
     # get user friends FriendNames
     userfriendsnames = map(lambda x: x.FriendName,userfriends)
 
@@ -114,6 +117,7 @@ def show_balance(request):
         'UserName':username,
         'NumberOfPayments':NumberOfPayments,
         'UserBalances':dict(UserBalances),
+        'userfriends_Number':userfriends_Number,
     }
 
     return HttpResponse(Balance_Template.render(Balance_Context,request))

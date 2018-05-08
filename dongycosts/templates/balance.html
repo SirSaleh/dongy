@@ -4,12 +4,17 @@
 {% endblock title %}
 {% block contents %}
   Hello <span style="color:blue;"> {{ UserName }}</span>. You have
-    {% if NumberOfPayments == 0 %}
-        <span style="color:red;"> No </span>
+    {% if userfriends_Number == 0%}
+      You have <span style="color:red;"> No </span> Friends. <a href= {% url 'dongy_addFriend' %}> Add at least One Friend </a>
     {% else %}
-        <span style="color:blue;"> {{ NumberOfPayments }} </span>
+      {% if NumberOfPayments == 0 %}
+          You Have {{userfriends_Number }} friends. But Unfortunately
+          <span style="color:red;"> No </span> Payments. add <a href= {% url 'dongy_equalform' %}> Add at least One Payment </a>.
+      {% else %}
+          <span style="color:blue;"> {{ NumberOfPayments }} </span> Payments.
+      {% endif %}
     {% endif %}
-    Payments.
+
     <hr>
     <ul>
     {% for UserBalancesName,UserBalancesVal in UserBalances.items %}
