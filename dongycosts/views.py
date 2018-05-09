@@ -213,8 +213,8 @@ def add_friend(request):
             # ...
             #
             new_friend_context = NewFriendName
-            return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
-                "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
+            #return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
+            #    "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
 
     # if a GET
     else:
@@ -222,7 +222,7 @@ def add_friend(request):
 
     # Context of add friend page
     Add_Friend_Context = {
-        'new_friend_context':new_friend_context,
+        'new_context':new_friend_context,
         'title':'Add a Friend',
         'UserName':username,
         'form':Add_Friend_Form(),

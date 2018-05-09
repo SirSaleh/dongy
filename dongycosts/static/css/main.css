@@ -8,6 +8,9 @@ body {
 li{
 	display: inline-block;
 }
+.warning{
+  color:red;
+}
 .mainrow li{
 	display: block;
 }
