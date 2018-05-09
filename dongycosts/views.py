@@ -189,6 +189,7 @@ def add_friend(request):
     # get username
     username = CurrentUser.get_username()
 
+    new_friend_context = None
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # Get name of Payer
@@ -211,6 +212,7 @@ def add_friend(request):
             NewFriendInstance.save()
             # ...
             #
+            new_friend_context = NewFriendName
             return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
                 "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
 
@@ -220,6 +222,7 @@ def add_friend(request):
 
     # Context of add friend page
     Add_Friend_Context = {
+        'new_friend_context':new_friend_context,
         'title':'Add a Friend',
         'UserName':username,
         'form':Add_Friend_Form(),
