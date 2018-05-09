@@ -199,22 +199,22 @@ def add_friend(request):
         oldfriends = friends.objects.filter(Username=CurrentUser)
         oldfriends = [x.FriendName for x in oldfriends]
         if (NewFriendName in oldfriends):
-            return HttpResponse("<h1> Sorry</h1>You Registered this friend's Name before.")
+            new_friend_context = False
+        else:
+            # create a form instance and populate it with data from the request:
+            form = Add_Friend_Form(request.POST)
+            print("Before Check valid")
+            # check whether it's valid:
+            if form.is_valid():
 
-        # create a form instance and populate it with data from the request:
-        form = Add_Friend_Form(request.POST)
-        print("Before Check valid")
-        # check whether it's valid:
-        if form.is_valid():
-
-            # Instance for Current Payment Query
-            NewFriendInstance = friends(Username=CurrentUser,FriendName=NewFriendName)
-            NewFriendInstance.save()
-            # ...
-            #
-            new_friend_context = NewFriendName
-            #return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
-            #    "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
+                # Instance for Current Payment Query
+                NewFriendInstance = friends(Username=CurrentUser,FriendName=NewFriendName)
+                NewFriendInstance.save()
+                # ...
+                #
+                new_friend_context = NewFriendName
+                #return HttpResponse("<h1> Thanks </h1> Your new Friend <span style='color:red;'>"+NewFriendName+
+                #    "</span> added successfully.<br> <a href='"+request.path+"'>Back to Add friends page. </a>")
 
     # if a GET
     else:

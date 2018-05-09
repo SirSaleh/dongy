@@ -11,6 +11,9 @@ li{
 .warning{
   color:red;
 }
+.message{
+  color: blue;
+}
 .mainrow li{
 	display: block;
 }

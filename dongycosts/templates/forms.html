@@ -3,10 +3,13 @@
   {{ title }}
 {% endblock title %}
 {% block contents %}
-  {% if new_context != None %}
-    <span class="warning"> You added {{new_context}} as your new friend successfully. </span> <br>
-  {% endif %}
+
   Hello <span style="color:blue;"> {{ UserName }}</span>
+  {% if new_context != None and new_context != False %}
+    <span class="message"> You added {{new_context}} as your new friend successfully. </span> <br>
+  {% elif new_context == False  %}
+    <span class="warning"> Sorry! You entered this name before. </span> <br>
+  {% endif %}
     {% if Friends_Number == 0%}
       <br> <a href="{% url 'dongy_addFriend' %}" >Add a friend first! </a>
     {% else %}
