@@ -139,6 +139,9 @@ def equal_form(request):
     # get Number of Friend
     Friends_Number = Friends.__len__()
 
+    # add report string
+    report_string = None
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -161,8 +164,8 @@ def equal_form(request):
             PaymentInstance = costs(UserName = CurrentUser, PayerName = PayerName, FriendNames = FriendNames,CostAmount = CostAmount )
             PaymentInstance.save()
             # ...
-            # redirect to a new URL:
-            return HttpResponse("<h1> Thanks </h1>")
+
+            report_string  = "You added total "+str(CostAmount)+" by "+ str(PayerName) + " for "+ str(FriendNames)
 
     # if a GET
     else:
@@ -173,6 +176,7 @@ def equal_form(request):
 
     # forms context
     Form_Context = {
+        'report_string':report_string,
         'title':'Add a Payment',
         'form':EqualForm(userid=userid),
         'UserName':username,

@@ -5,6 +5,9 @@
 {% block contents %}
 
   Hello <span style="color:blue;"> {{ UserName }}</span>
+     {% if report_string != None %}
+    <span class="message"> {{report_string}} </span>
+  {% endif %}
   {% if new_context != None and new_context != False %}
     <span class="message"> You added {{new_context}} as your new friend successfully. </span> <br>
   {% elif new_context == False  %}
