@@ -1,5 +1,5 @@
 html * {
-    font-family: 'Playfair Display', serif;
+
 }
 body {
 	background-color:#fff;
@@ -15,13 +15,17 @@ li{
   color: blue;
 }
 .mainrow li{
-	display: block;
+	display: inline-block;
+  padding-left: 25px;
 }
+
+
 
 .row {
 	padding-left: 15px;
 }
 .navbarrow{
+  font-family: 'Playfair Display', serif;
 	background-color: #fff;
 	margin-bottom: -20px;
 	box-shadow: 10px 10px 10px 2px;
