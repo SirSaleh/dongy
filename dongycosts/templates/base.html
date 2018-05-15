@@ -55,7 +55,13 @@
     <!--end Header -->
     <div class="containter"> <!-- Content Container -->
       <div class="row mainrow"> <!-- Content row -->
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 xs-hidden sm-hidden"> <!-- sidebar !-->
+          <h2> Welcome! </h2>
+        </div> <!-- sidebar -->
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10"> <!-- main column for content !-->
         {% block contents %} {% endblock contents %}
+        <div> <!-- main column for content !-->
+
       </div> <!-- Content row -->
     </div>  <!-- Content Container -->
   </body>
