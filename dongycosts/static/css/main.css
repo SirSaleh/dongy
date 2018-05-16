@@ -54,7 +54,10 @@ li{
 	text-align: left;
 	font-size: 20px;
 }
-
+.maincol{
+	border-left: 1px solid black;
+	height: 500px;
+}
 
 @media only screen and (max-width:600px){
 	li{
