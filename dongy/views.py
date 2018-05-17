@@ -14,7 +14,7 @@ def index(request):
         Authenticated Users will be redirected to
         dongy_costs apps, Others should authenticate
     '''
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('dongy_index')
 
     return redirect('login')
