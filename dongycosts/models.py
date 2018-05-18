@@ -6,10 +6,11 @@ from django.db import models
 # Create your models here.
 class friends (models.Model):
     Username = models.ForeignKey(User,on_delete=models.CASCADE)
+    ProfileID = models.ForeignKey('dongycosts.profiles',on_delete=models.CASCADE)
     FriendName = models.CharField(max_length=20)
     ProfileID = models.IntegerField(default=1)
     class Meta:
-        unique_together = (('Username', 'FriendName'))
+        unique_together = (('Username', 'FriendName','ProfileID'))
 
 class costs (models.Model):
     CostId = models.AutoField(primary_key=True)
