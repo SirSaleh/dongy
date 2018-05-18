@@ -7,8 +7,9 @@ from django.db import models
 class friends (models.Model):
     Username = models.ForeignKey(User,on_delete=models.CASCADE)
     FriendName = models.CharField(max_length=20)
+    ProfileID = models.IntegerField(default=1)
     class Meta:
-        unique_together = ('Username', 'FriendName',)
+        unique_together = (('Username', 'FriendName'))
 
 class costs (models.Model):
     CostId = models.AutoField(primary_key=True)
@@ -17,3 +18,8 @@ class costs (models.Model):
     FriendNames = models.CharField(max_length=20)
     FriendShare = models.CharField(max_length=1000,null=True,blank=True)
     CostAmount = models.FloatField()
+
+class profiles (models.Model):
+    ProfileId = models.AutoField(primary_key=True)
+    Username = models.ForeignKey(User,on_delete=models.CASCADE)
+    ProfileName = models.CharField(max_length=20)
