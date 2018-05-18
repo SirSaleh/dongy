@@ -21,6 +21,6 @@ class costs (models.Model):
     CostAmount = models.FloatField()
 
 class profiles (models.Model):
-    ProfileId = models.AutoField(primary_key=True)
+    ProfileId = models.IntegerField(primary_key=True)
     Username = models.ForeignKey(User,on_delete=models.CASCADE)
     ProfileName = models.CharField(max_length=20)
