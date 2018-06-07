@@ -1,0 +1,4 @@
+include readme.md
+include readme.rst
+recursive-include dongycosts/static *
+recursive-include dongycosts/templates *

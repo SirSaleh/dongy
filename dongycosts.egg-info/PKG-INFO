@@ -1,0 +1,49 @@
+Metadata-Version: 1.1
+Name: dongycosts
+Version: 1.0
+Summary: A simple Django app to calculate shared costs.
+Home-page: https://www.github.com/sirsaleh/dongy
+Author: SirSaleh
+Author-email: animatorsaleh@gmail.com
+License: GPL V2.
+Description-Content-Type: UNKNOWN
+Description: =====
+        dongy
+        =====
+        
+        dongy is a simple Django app to conduct Web-based sharedcosts calculator.
+        
+        
+        Quick start
+        -----------
+        
+        1. Add "dongycosts" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'dongycosts',
+            ]
+        
+        2. Include the dongycosts URLconf in your project urls.py like this::
+        
+            path('dongycosts/', include('dongycosts.urls')),
+        
+        3. Run `python manage.py migrate` to create the dongycosts models.
+        
+        4. (optional) Start the development server and visit http://127.0.0.1:8000/admin/
+           to create a dongycost (you'll need the Admin app enabled).
+        
+        5. Visit http://127.0.0.1:8000/dongycosts/ to participate in the dongycosts.
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GPL V2
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
