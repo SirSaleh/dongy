@@ -14,6 +14,7 @@ dongycosts/views.py
 dongycosts.egg-info/PKG-INFO
 dongycosts.egg-info/SOURCES.txt
 dongycosts.egg-info/dependency_links.txt
+dongycosts.egg-info/requires.txt
 dongycosts.egg-info/top_level.txt
 dongycosts/static/css/main.css
 dongycosts/static/imgs/logo.png

@@ -18,6 +18,9 @@ setup(
     url='https://www.github.com/sirsaleh/dongy',
     author='SirSaleh',
     author_email='animatorsaleh@gmail.com',
+    install_requires=[
+          'djangorestframework',
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

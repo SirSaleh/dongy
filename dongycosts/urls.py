@@ -18,13 +18,37 @@ Including another URLconf
 # from django.conf.urls import include
 # url(r'^dongycosts/' ,include('dongycosts.urls')),
 
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from dongycosts import views as dongycosts_views
 
+# for Use in REST API
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
+
+# Serializers define the API representation.
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'is_staff')
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
+
+
 urlpatterns = [
-    #url(r'^login/$', auth_views.login, name='login')
     url(r'^$',dongycosts_views.index,name= "dongy_index"),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^login/$', auth_views.login, name='login'),
     url(r'^list/',dongycosts_views.list_costs,name="dongy_list"),
     url(r'^balance/',dongycosts_views.show_balance,name= "dongy_balance"),
     url(r'^EqualForm/',dongycosts_views.equal_form,name="dongy_equalform"),
