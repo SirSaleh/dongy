@@ -22,7 +22,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from dongycosts import views as dongycosts_views
-
+# class-based ViewSets
+from dongycosts.views import About
 # for Use in REST API
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
@@ -53,4 +54,5 @@ urlpatterns = [
     url(r'^balance/',dongycosts_views.show_balance,name= "dongy_balance"),
     url(r'^EqualForm/',dongycosts_views.equal_form,name="dongy_equalform"),
     url(r'^AddFriend/',dongycosts_views.add_friend,name="dongy_addFriend"),
+    url(r'^about/',About.as_view()),
 ]

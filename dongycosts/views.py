@@ -8,11 +8,21 @@ from dongycosts.models import costs
 from dongycosts.models import friends
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+# generic Views
+from django.views import View
 # to addup dictionaries
 from collections import Counter
 # to load forms
 from dongycosts.forms import EqualForm
 from dongycosts.forms import Add_Friend_Form
+
+
+class About(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('<h1> About </h1> I am SirSaleh <br> Find me at <a href="http://sirsaleh.com">My Website!</a>.')
+
+
+
 
 
 
